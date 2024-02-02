@@ -1,0 +1,12 @@
+<h1><%= @answer %></h1>
+<%=@array%>
+<%=@answer_array%>
+<%= @answer_array.difference(@array).empty?%>
+<% if @real_word && @answer_array.difference(@array).empty? %>
+  <p>congratulations <%= @answer %> is a valid English word</p>
+<% elsif @real_word == false && @answer_array.difference(@array).empty? == true %>
+  <p>Sorry but <%= @answer %> does not seem to be an English word</p>
+<% elsif @real_word == false && @answer_array.difference(@array).empty? == false %>
+  <p>sorry but <%= @answer %> can't be built out of <%=@array%></p>
+<%end%>
+<%= link_to"new game", "/new"%>
